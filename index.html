@@ -6,15 +6,48 @@
     <title>Document</title>
   </head>
   <body>
+    <header>
+      <h2>
+        Header
+        <p>
+          There is always one #root and can add react on any HTML-element
+          (navbar, search-bar)
+        </p>
+      </h2>
+    </header>
     <div id="root">
       <!-- <h1>Namaste React</h1> -->
     </div>
-  </body>
-  <script>
+    <footer>
+      <h2>Footer</h2>
+    </footer>
+    <!-- Writing JS to add element in HTML -->
+    <!-- <script>
     const heading = document.createElement("h1");
     heading.innerHTML = "Namaste REEEact";
-    // console.log(divi);
     const root = document.getElementById("root");
     root.appendChild(heading);
-  </script>
+  </script> -->
+
+    <!-- Writing HTML using React-CDN links react and reactDOM -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+
+    <script>
+      const heading = React.createElement(
+        "h1",
+        { id: "title" },
+        "Namaste React"
+      ); // it takes 3args (tag, {style:css}, "content or data lorem")
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+
+      root.render(heading);
+    </script>
+  </body>
 </html>
