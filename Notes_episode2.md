@@ -41,3 +41,4 @@
 13. npx parcel build index.html- it is command for production build.(it will give error, So remove {main: "App.js"} from pckg.json file)
 14. Transitive dependencies: Dependency that uses the dependency (D->D->D hierarchical way )
 15. Browser-list : is the thing which will make our code compatible for all the browsers.
+16. node_module : contains library from npm pckg manager. It works on localhost.
