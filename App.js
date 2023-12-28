@@ -27,14 +27,18 @@ import ReactDOM from "react-dom/client"; //earlier above import used to work but
 // );
 // =======================React comp==================================
 const Title = () => (
-  <div>
-    <h1>Foodie HUB</h1>
-  </div>
+  <a href="/">
+    <img
+      className="logo"
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSimKS0-E61jy_dctanYVq2rzxMV35RExo-Aw&usqp=CAU"
+      alt="logo"
+    />
+  </a>
 );
 // ======================Functional Component ===============
-const App = () => {
+const Header = () => {
   return (
-    <div>
+    <div className="header">
       <Title />
       <div className="nav-items">
         <ul>
@@ -51,12 +55,191 @@ const App = () => {
     </div>
   );
 };
+// Config-driven UI
+const restaurantList = [
+  {
+    name: "Burger King",
+    image:
+      "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/7755d6ac37feb15302927776058bee4b",
+    cuisines: ["Burger", " Ham-Burger"],
+    rating: "4.3 stars",
+  },
+  {
+    name: "Domino's",
+    image:
+      "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/hmyktxkas3auvpsl728b",
+    cuisines: ["Burger", " Ham-Burger"],
+    rating: "5.0 stars",
+  },
+  {
+    name: "Chai Sutta Bar",
+    image:
+      "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/uggzsxukffvxqvpckhqo",
+    cuisines: ["Burger", " Ham-Burger"],
+    rating: "3.5 stars",
+  },
+  {
+    name: "Chappan Bhog",
+    image:
+      "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/b14cd9fc40129fcfb97aa7e621719d07",
+    cuisines: ["Chole-Bhature", "Idli-Dosa"],
+    rating: "4.1 stars",
+  },
+  {
+    name: "Real Taste",
+    image:
+      "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/c10jq9uwcicxa9lcdk2t",
+    cuisines: ["Kaju-Curry", " Paneer"],
+    rating: "4.5 stars",
+  },
+  {
+    name: "Pet Pooja",
+    image:
+      "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/2b4f62d606d1b2bfba9ba9e5386fabb7",
+    cuisines: ["Sandwich", " Pizza"],
+    rating: "3.2 stars",
+  },
+  {
+    name: "Once More",
+    image:
+      "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/d3b3db238b6448c3f297c851e9d0b96b",
+    cuisines: ["Ice Cream", "Chocolate Balls"],
+    rating: "2.3 stars",
+  },
+  {
+    name: "Momo-Land",
+    image:
+      "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/b2c729a7df12980b4e523725c087946b",
+    cuisines: ["Veg-Momos", "Fried-Momos"],
+    rating: "4.2 stars",
+  },
+  {
+    name: "Real Taste",
+    image:
+      "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/c10jq9uwcicxa9lcdk2t",
+    cuisines: ["Kaju-Curry", " Paneer"],
+    rating: "4.5 stars",
+  },
+  {
+    name: "Pet Pooja",
+    image:
+      "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/2b4f62d606d1b2bfba9ba9e5386fabb7",
+    cuisines: ["Sandwich", " Pizza"],
+    rating: "3.2 stars",
+  },
+  {
+    name: "Once More",
+    image:
+      "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/d3b3db238b6448c3f297c851e9d0b96b",
+    cuisines: ["Ice Cream", "Chocolate Balls"],
+    rating: "2.3 stars",
+  },
+  {
+    name: "Momo-Land",
+    image:
+      "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/b2c729a7df12980b4e523725c087946b",
+    cuisines: ["Veg-Momos", "Fried-Momos"],
+    rating: "4.2 stars",
+  },
+  {
+    name: "Real Taste",
+    image:
+      "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/c10jq9uwcicxa9lcdk2t",
+    cuisines: ["Kaju-Curry", " Paneer"],
+    rating: "4.5 stars",
+  },
+  {
+    name: "Pet Pooja",
+    image:
+      "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/2b4f62d606d1b2bfba9ba9e5386fabb7",
+    cuisines: ["Sandwich", " Pizza"],
+    rating: "3.2 stars",
+  },
+  {
+    name: "Once More",
+    image:
+      "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/d3b3db238b6448c3f297c851e9d0b96b",
+    cuisines: ["Ice Cream", "Chocolate Balls"],
+    rating: "2.3 stars",
+  },
+  {
+    name: "Momo-Land",
+    image:
+      "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/b2c729a7df12980b4e523725c087946b",
+    cuisines: ["Veg-Momos", "Fried-Momos"],
+    rating: "4.2 stars",
+  },
+  {
+    name: "Real Taste",
+    image:
+      "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/c10jq9uwcicxa9lcdk2t",
+    cuisines: ["Kaju-Curry", " Paneer"],
+    rating: "4.5 stars",
+  },
+  {
+    name: "Pet Pooja",
+    image:
+      "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/2b4f62d606d1b2bfba9ba9e5386fabb7",
+    cuisines: ["Sandwich", " Pizza"],
+    rating: "3.2 stars",
+  },
+  {
+    name: "Once More",
+    image:
+      "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/d3b3db238b6448c3f297c851e9d0b96b",
+    cuisines: ["Ice Cream", "Chocolate Balls"],
+    rating: "2.3 stars",
+  },
+  {
+    name: "Momo-Land",
+    image:
+      "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/b2c729a7df12980b4e523725c087946b",
+    cuisines: ["Veg-Momos", "Fried-Momos"],
+    rating: "4.2 stars",
+  },
+];
+const RestaurantCard = () => {
+  return (
+    // <div className="card">
+    //   <img src={burgerKing.image} alt="restaurant img" />
+    //   <h2>{burgerKing.name}</h2>
+    //   <h3>{burgerKing.cuisines.join(" ")}</h3>
+    //   <h4>{burgerKing.rating}</h4>
+    // </div>
+    <div className="card-container">
+      {restaurantList.map((card, index) => (
+        <div className="card" key={index}>
+          <img src={card.image} />
+          <h2>{card.name}</h2>
+          <h3>{card.cuisines.join(" ")}</h3>
+          <h4>{card.rating}</h4>
+        </div>
+      ))}
+    </div>
+  );
+};
+// =================BOdy
+const Body = () => (
+  <>
+    <RestaurantCard />
+  </>
+);
+const Footer = () => <h1>Footer</h1>;
+const AppLayout = () => {
+  return (
+    <React.Fragment>
+      <Header />
+      <Body />
+      <Footer />
+    </React.Fragment>
+  );
+};
 // const HeaderComponent2 = () => (
 //   <div>
 //     <h1>Writing Component using JSX</h1>;
 //   </div>
 // );
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById("root"));``
 // passing a react element inside the root
 // root.render(container);
 
@@ -64,4 +247,4 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 // root.render(heading);
 
 // ==== FOR component====
-root.render(<App />);
+root.render(<AppLayout />);
